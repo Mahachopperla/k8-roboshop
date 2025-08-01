@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: maha110/mongodb:v1
+        image: maha110/mongodb:v1 # this image is already buld in docker and pushed to docker hub. we are using it here to run container.
 ---
 apiVersion: v1
 kind: Service
