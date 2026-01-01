@@ -7,8 +7,6 @@ metadata:
     component: frontend
     project: roboshop
     tier: web
-# not only env variables, we can modify/declare files using configmap as below, while refering them in template we should refer them as volumes as files have specific path to mount to .
-# here we are going to modify the default nginx port in conf file. 
 data:
   nginx.conf: |
     user nginx;
@@ -101,8 +99,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: maha110/frontend:v1 # this image is already buld in docker and pushed to docker hub. we are using it here to run container.
-        # we need to mount nginx conf file here
+        image: maha110/frontend:v1 
         volumeMounts:
             - name: nginx-conf
               mountPath: /etc/nginx/nginx.conf
@@ -120,7 +117,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
-  namespace: roboshop # dont forget to mention this.
+  namespace: roboshop 
   #labels in service are used to filter service based on labels . 
   labels:
     component: frontend

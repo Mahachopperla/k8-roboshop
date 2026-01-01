@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: maha110/shipping:v1 # this image is already buld in docker and pushed to docker hub. we are using it here to run container.
+        image: maha110/shipping:v1 
         envFrom:
         - configMapRef:
             name: shipping
@@ -47,7 +47,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: shipping
-  namespace: roboshop # dont forget to mention this.
+  namespace: roboshop 
   #labels in service are used to filter service based on labels . 
   labels:
     component: shipping
